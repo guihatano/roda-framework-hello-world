@@ -1,28 +1,30 @@
 # cat config.ru
-require "roda"
+require 'roda'
 
 class App < Roda
+  plugin :json
+
   route do |r|
     # GET / request
     r.root do
-      r.redirect "/hello"
+      r.redirect '/hello'
     end
 
     # /hello branch
-    r.on "hello" do
+    r.on 'hello' do
       # Set variable for all routes in /hello branch
       @greeting = 'Hello'
 
       # GET /hello/world request
-      r.get "world" do
-        "#{@greeting} world!"
+      r.get 'world' do
+        { message: "#{@greeting} world!" }
       end
 
       # /hello request
       r.is do
         # GET /hello request
         r.get do
-          "#{@greeting}!"
+          { message: "#{@greeting}!" }
         end
 
         # POST /hello request

@@ -2,7 +2,7 @@
 
 ## ApacheBench
 
-```
+```shell
 ab -n 5000 -c 500 http://localhost:9292/
 This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -62,7 +62,7 @@ Percentage of the requests served within a certain time (ms)
 
 ### Test with a concurrency of 1000
 
- ```
+ ```shell
  ab -n 5000 -c 1000 http://localhost:9292/
 This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -122,44 +122,44 @@ Percentage of the requests served within a certain time (ms)
 
 ## Siege
 
-```
+```shell
 siege -t 5S -c 500 http://localhost:9292/
 ** SIEGE 4.0.4
 ** Preparing 500 concurrent users for battle.
 The server is now under siege...
 Lifting the server siege...
-Transactions:		        5000 hits
-Availability:		      100.00 %
-Elapsed time:		        4.44 secs
-Data transferred:	        0.01 MB
-Response time:		        0.41 secs
-Transaction rate:	     1126.13 trans/sec
-Throughput:		        0.00 MB/sec
-Concurrency:		      457.56
+Transactions:          5000 hits
+Availability:        100.00 %
+Elapsed time:          4.44 secs
+Data transferred:         0.01 MB
+Response time:          0.41 secs
+Transaction rate:      1126.13 trans/sec
+Throughput:          0.00 MB/sec
+Concurrency:        457.56
 Successful transactions:        5078
-Failed transactions:	           0
-Longest transaction:	        0.73
-Shortest transaction:	        0.01
+Failed transactions:            0
+Longest transaction:         0.73
+Shortest transaction:         0.01
 ```
 
 ### with concurrency of 1000
 
-```
+```shell
 siege -t 5S -c 1000 http://localhost:9292/
 ** SIEGE 4.0.4
 ** Preparing 1000 concurrent users for battle.
 The server is now under siege...
 Lifting the server siege...
-Transactions:		        6856 hits
-Availability:		      100.00 %
-Elapsed time:		        4.77 secs
-Data transferred:	        0.02 MB
-Response time:		        0.61 secs
-Transaction rate:	     1437.32 trans/sec
-Throughput:		        0.00 MB/sec
-Concurrency:		      882.81
+Transactions:          6856 hits
+Availability:        100.00 %
+Elapsed time:          4.77 secs
+Data transferred:         0.02 MB
+Response time:          0.61 secs
+Transaction rate:      1437.32 trans/sec
+Throughput:          0.00 MB/sec
+Concurrency:        882.81
 Successful transactions:        7486
-Failed transactions:	           0
-Longest transaction:	        0.94
-Shortest transaction:	        0.00
+Failed transactions:            0
+Longest transaction:         0.94
+Shortest transaction:         0.00
 ```
