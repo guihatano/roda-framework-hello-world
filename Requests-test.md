@@ -163,3 +163,93 @@ Failed transactions:            0
 Longest transaction:         0.94
 Shortest transaction:         0.00
 ```
+
+## With response as JSON
+
+```shell
+ab -n 5000 -c 1000 http://localhost:9292/hello
+This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 500 requests
+Completed 1000 requests
+Completed 1500 requests
+Completed 2000 requests
+Completed 2500 requests
+Completed 3000 requests
+Completed 3500 requests
+Completed 4000 requests
+Completed 4500 requests
+Completed 5000 requests
+Finished 5000 requests
+
+
+Server Software:
+Server Hostname:        localhost
+Server Port:            9292
+
+Document Path:          /hello
+Document Length:        20 bytes
+
+Concurrency Level:      1000
+Time taken for tests:   3.537 seconds
+Complete requests:      5000
+Failed requests:        0
+Total transferred:      455000 bytes
+HTML transferred:       100000 bytes
+Requests per second:    1413.64 [#/sec] (mean)
+Time per request:       707.392 [ms] (mean)
+Time per request:       0.707 [ms] (mean, across all concurrent requests)
+Transfer rate:          125.63 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    4   8.0      0      40
+Processing:    32  597 189.1    646     919
+Waiting:       32  596 189.1    645     919
+Total:         55  600 182.6    646     919
+
+Percentage of the requests served within a certain time (ms)
+  50%    646
+  66%    700
+  75%    728
+  80%    731
+  90%    801
+  95%    871
+  98%    912
+  99%    915
+ 100%    919 (longest request)
+```
+
+## Siege with response as JSON
+
+```shell
+siege -t 5S -c 1000 http://localhost:9292/hello
+** SIEGE 4.0.4
+** Preparing 1000 concurrent users for battle.
+The server is now under siege...
+Lifting the server siege...
+Transactions:          6419 hits
+Availability:        100.00 %
+Elapsed time:          4.85 secs
+Data transferred:         0.12 MB
+Response time:          0.66 secs
+Transaction rate:      1323.51 trans/sec
+Throughput:          0.03 MB/sec
+Concurrency:        876.85
+Successful transactions:        6419
+Failed transactions:            0
+Longest transaction:         0.95
+Shortest transaction:         0.01
+```
+
+## My notebook configuration
+
+- **OS**: Ubuntu 18.04.5 LTS (Bionic Beaver) 64-bit
+- **Processor**: Intel Core i7-9750H CPU @ 2.60GHz x 12
+- **Memory**: 24 GB RAM @ 2667MHz
+- **SSD**: Intel SSD NVMe 512 GB (SSDPEKNW512G8)
+  - Sequential Bandwidth - 100% Read (up to) 1500 MB/s
+  - Sequential Bandwidth - 100% Write (up to) 1000 MB/s
