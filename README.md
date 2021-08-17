@@ -14,3 +14,6 @@ Start the server
 ```
 rackup
 ```
+
+## Some tests made
+See [Requests-test.md](Requests-test.md)
