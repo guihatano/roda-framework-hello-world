@@ -58,12 +58,12 @@ Percentage of the requests served within a certain time (ms)
   98%    900
   99%    903
  100%    920 (longest request)
- ```
+```
 
 ### Test with a concurrency of 1000
 
- ```shell
- ab -n 5000 -c 1000 http://localhost:9292/
+```shell
+ab -n 5000 -c 1000 http://localhost:9292/
 This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
